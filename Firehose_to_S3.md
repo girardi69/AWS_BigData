@@ -1,17 +1,20 @@
 # E-Commerce Order History App
 
-## Set up fake order log generator:n6t 
--	Set up EC2 T2/micro instance with latest Amazon Linux AMI (not Linux2)  
--	sudo yum install –y aws-kinesis-agent
--	wget http://media.sundog-soft.com/AWSBigData/LogGenerator.zip
--	unzip LogGenerator.zip
--	chmod a+x LogGenerator.py
--	sudo mkdir /var/log/cadabra
-
 ## Set up Kinesis Streams:
 -	AWS console: Kinesis / create data stream
 -	Warn student that Kinesis streams have an hourly cost whether you're using them or not
 -	Name: CadabraOrders / 1 shard
+
+## Create IAM Role for Lambda
+- IAM Create Role
+- Policy to choose:
+- AmazonKinesisReadOnlyAccess
+- AmazonDynamoDBFullAccess
+- Give the two policy a Role Name `CadabraOrders`
+
+
+
+
 -	cd /etc/aws-kinesis
 -	sudo vi agent.json
 
