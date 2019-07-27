@@ -33,7 +33,8 @@ Set up Kinesis Streams:
       "dataProcessingOptions": [
          {
             "optionName": "CSVTOJSON",
-            "customFieldNames": ["InvoiceNo", "StockCode", "Description", "Quantity", "InvoiceDate", "UnitPrice", "Customer", "Country"]
+            "customFieldNames": ["InvoiceNo", "StockCode", "Description", "Quantity",
+                                  "InvoiceDate", "UnitPrice", "Customer", "Country"]
          }
       ]
     }
