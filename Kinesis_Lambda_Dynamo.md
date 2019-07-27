@@ -72,4 +72,8 @@ def lambda_handler(event, context):
 
 - check the Handler that is `lambda_function.lambda_handler`
 
+# Test that it works
+- Open the EC2 Instance with putty
+- launch
+`sudo ./LogGenerator.py 10`
 
