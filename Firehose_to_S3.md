@@ -1,7 +1,7 @@
 # E-Commerce Order History App (without Lambda)
 
-## Set up fake order log generator:
--	Set up EC2 T2/micro instance with latest Amazon Linux AMI
+## Set up fake order log generator:n6t 
+-	Set up EC2 T2/micro instance with latest Amazon Linux AMI (not Linux2)  
 -	sudo yum install –y aws-kinesis-agent
 -	wget http://media.sundog-soft.com/AWSBigData/LogGenerator.zip
 -	unzip LogGenerator.zip
@@ -13,7 +13,7 @@
 -	Warn student that Kinesis streams have an hourly cost whether you're using them or not
 -	Name: CadabraOrders / 1 shard
 -	cd /etc/aws-kinesis
--	sudo nano agent.json
+-	sudo vi agent.json
 
  ```python
 
@@ -21,28 +21,17 @@
   "cloudwatch.emitMetrics": true,
   "kinesis.endpoint": "",
   "firehose.endpoint": "",
-
-  "awsAccessKeyId": "AKIAJF4KVZWOY65QWOOA",
-  "awsSecretAccessKey": "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",
-
+  
   "flows": [
     {
       "filePattern": "/var/log/cadabra/*.log",
-      "kinesisStream": "CadabraOrders",
-      "partitionKeyOption": "RANDOM",
-      "dataProcessingOptions": [
-         {
-            "optionName": "CSVTOJSON",
-            "customFieldNames": ["InvoiceNo", "StockCode", "Description", "Quantity",
-                                  "InvoiceDate", "UnitPrice", "Customer", "Country"]
-         }
-      ]
+      "deliverystream": "PurchaseLogs"
     }
   ]
 }
 ```
 
-
+- attach the proper IAM Role to the EC2 Instance
 -	sudo service aws-kinesis-agent start
 -	sudo chkconfig aws-kinesis-agent on
 
@@ -50,6 +39,9 @@
 -	cd ~
 -	sudo ./LogGenerator.py
 -	tail -f /var/log/aws-kinesis-agent/aws-kinesis-agent.log
+- cd /var/log/cadabra/
+- grep 27727 *.log
+- cd ~
 
 ## Set up DynamoDB:
 -	Create CadabraOrders table
