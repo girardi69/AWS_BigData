@@ -1,4 +1,4 @@
-# E-Commerce Order History App (without Lambda)
+# E-Commerce Order History App
 
 ## Set up fake order log generator:n6t 
 -	Set up EC2 T2/micro instance with latest Amazon Linux AMI (not Linux2)  
