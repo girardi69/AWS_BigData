@@ -49,6 +49,12 @@
 -	Sort key: OrderID
 -	Set provisioning to stay within free tier
 
+
+## Set up Lambda:
+
+
+
+
 ## Set up consumer app:
 -	sudo pip install boto3  
 -	Create the new file and give it the name credentials  
@@ -70,3 +76,4 @@ region=us-east-1
 -	In another window: sudo ./LogGenerator.py 10
 -	Give it a minute, observe Consumer script processing the 10 new lines
 -	Observe Items in the DynamoDB table in the console
+
