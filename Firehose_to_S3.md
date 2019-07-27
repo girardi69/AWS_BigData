@@ -1,6 +1,6 @@
-## E-Commerce Order History App (without Lambda)
+# E-Commerce Order History App (without Lambda)
 
-Set up fake order log generator:
+## Set up fake order log generator:
 -	Set up EC2 T2/micro instance with latest Amazon Linux AMI
 -	sudo yum install –y aws-kinesis-agent
 -	wget http://media.sundog-soft.com/AWSBigData/LogGenerator.zip
@@ -8,7 +8,7 @@ Set up fake order log generator:
 -	chmod a+x LogGenerator.py
 -	sudo mkdir /var/log/cadabra
 
-Set up Kinesis Streams:
+## Set up Kinesis Streams:
 -	AWS console: Kinesis / create data stream
 -	Warn student that Kinesis streams have an hourly cost whether you're using them or not
 -	Name: CadabraOrders / 1 shard
@@ -46,26 +46,32 @@ Set up Kinesis Streams:
 -	sudo service aws-kinesis-agent start
 -	sudo chkconfig aws-kinesis-agent on
 
-Test the stream:
+## Test the stream:
 -	cd ~
 -	sudo ./LogGenerator.py
 -	tail -f /var/log/aws-kinesis-agent/aws-kinesis-agent.log
 
-Set up DynamoDB:
+## Set up DynamoDB:
 -	Create CadabraOrders table
 -	Primary key: CustomerID
 -	Sort key: OrderID
 -	Set provisioning to stay within free tier
 
-Set up consumer app:
--	sudo pip install boto3
--	Create ~/.aws/credentials:
--	[default]
+## Set up consumer app:
+-	sudo pip install boto3  
+-	Create the new file and give it the name credentials:  
+~/.aws/credentials:  
+```
+[default]
 aws_access_key_id = YOUR_ACCESS_KEY
 aws_secret_access_key = YOUR_SECRET_KEY
--	Create ~/.aws/config:
--	[default]
+```
+-	Create the new file and give it the name config:  
+~/.aws/config:  
+```
+[default]
 region=us-east-1
+```
 -	wget http://media.sundog-soft.com/AWSBigData/Consumer.py
 -	Chmod a+x Consumer.py
 -	./Consumer.py
