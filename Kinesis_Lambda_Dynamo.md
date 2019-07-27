@@ -72,6 +72,39 @@ def lambda_handler(event, context):
 
 - check the Handler that is `lambda_function.lambda_handler`
 
+# Change the configuration of the EC2 Producer
+- cd /etc/aws-kinesis/
+- sudo vi agent.json
+- the new code must have two flows, as follow:
+```python
+{
+  "cloudwatch.emitMetrics": true,
+  "kinesis.endpoint": "",
+  "firehose.endpoint": "",
+
+  "flows": [
+    {
+      "filePattern": "/var/log/cadabra/*.log",
+      "kinesisStream": "CadabraOrders",
+      "partitionKeyOption": "RANDOM",
+      "dataProcessingOptions": [
+         {
+            "optionName": "CSVTOJSON",
+            "customFieldNames": ["InvoiceNo", "StockCode", "Description", "Quantity", "InvoiceDate", "UnitPrice", "Customer", "Country"]
+         }
+      ]
+    },
+    {
+      "filePattern": "/var/log/cadabra/*.log*",
+      "deliveryStream": "PurchaseLogs"
+    }
+  ]
+```
+- relaunch the service
+- sudo service aws-kinesis-agent restart
+- cd ~
+
+
 # Test that it works
 - Open the EC2 Instance with putty
 - launch
