@@ -59,14 +59,14 @@
 
 ## Set up consumer app:
 -	sudo pip install boto3  
--	Create the new file and give it the name credentials:  
+-	Create the new file and give it the name credentials  
 ~/.aws/credentials:  
 ```
 [default]
 aws_access_key_id = YOUR_ACCESS_KEY
 aws_secret_access_key = YOUR_SECRET_KEY
 ```
--	Create the new file and give it the name config:  
+-	Create the new file and give it the name config  
 ~/.aws/config:  
 ```
 [default]
