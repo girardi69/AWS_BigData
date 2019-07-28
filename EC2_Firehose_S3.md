@@ -50,3 +50,12 @@ with open(placeholder, 'w') as f:
 - sudo vi agent.json  <-- change the parameters
 - Attach a IAM Role to EC2 to write to KDF
 - sudo service aws-kinesis-agent start
+- sudo chkconfig aws-kinesis-agent on
+- cd ~
+- sudo LogGenerator.py 2  <-- write 2 lines on KDF and then to S3. Can put 500.000 if no streaming is connected
+
+# Look Around and see metrics
+- cd /var/log/cadabra/
+- ls
+- tail -f /var/log/aws-kinesis-agent/aws-kinesis/agent.log
+- grep 84029G *.log
