@@ -43,3 +43,10 @@ print("Wrote " + str(totalLinesWritten) + " lines.\n")
 with open(placeholder, 'w') as f:
     f.write(str(startLine))
 ```
+
+## Prepare to send the data to Firehose
+- sudo mkdir /var/log/cadabra/
+- cd /etc/aws-kinesis/
+- sudo vi agent.json  <-- change the parameters
+- Attach a IAM Role to EC2 to write to KDF
+- sudo service aws-kinesis-agent start
