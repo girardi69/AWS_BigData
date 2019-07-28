@@ -17,3 +17,29 @@ InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,Countr
 536365,21730,GLASS STAR FROSTED T-LIGHT HOLDER,6,12/1/2010 8:26,4.25,17850,United Kingdom  
 ```
 
+LogGenerator.py is a Python2.7 file
+```python
+try:
+    with open(placeholder, 'r') as f:
+        for line in f:
+             startLine = int(line)
+except IOError:
+    startLine = 0
+
+print("Writing " + str(numLines) + " lines starting at line " + str(startLine) + "\n")
+
+totalLinesWritten = 0
+linesInFile = GetLineCount()
+
+while (totalLinesWritten < numLines):
+    linesWritten = MakeLog(startLine, numLines - totalLinesWritten)
+    totalLinesWritten += linesWritten
+    startLine += linesWritten
+    if (startLine >= linesInFile):
+        startLine = 0
+
+print("Wrote " + str(totalLinesWritten) + " lines.\n")
+
+with open(placeholder, 'w') as f:
+    f.write(str(startLine))
+```
