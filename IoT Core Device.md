@@ -3,6 +3,8 @@
 - click `manage`
 - click `Register a thing`
 - Add a certificate for your thing
+- click `secure`
+- click `Create a certificate`
 - click `Create certificate`
 - download:
 `A certificate for this thing`
@@ -17,7 +19,7 @@
 - go to `Secure`
 - choose `Policies`
 - click `Create a policy`
-- Name it `sensor-policy`
+- Name it `sensor-policy` vehicle-policy
 - define Action: `iot:*`
 - define resource ARN: `*`
 - define Effect: `Allow`
@@ -26,7 +28,7 @@
 ## Attach the policy to the certificate
 - go to `Secure` and then `Certificates`
 - click the meatball menu and `Attach policy`
-- tick the right `sensor policy` and attach
+- tick the right `sensor policy` and click attach vehicle-policy
 
 ## Verify the Certificate has the right policy
 - Open `Certificate`
@@ -35,22 +37,24 @@
 
 ## IoT
 
-- Register a thing
-- Create a single thing
-- give it the name: `store-sensor-seattle-1`
+- go on `Manage`
+- click on `Things`
+- click button `Register a thing`
+-Click button `Create a single thing`
+- give it the name: `store-sensor-seattle-1` -- vehicle-turin-1
 
 - Click button `Create a type` and open the new window:
-- Name it `sensor`
+- Name it `sensor` -- vehicle
 - Describe it `A sensor for a store`
-- Go ahead and `Create thing type`
+- Go ahead and click button `Create thing type`
 
-- Add the thing to a Group by creating it in the new window
-- Click button `Create a thing group`
+## Add this thing to a group
+- Add the thing to a Group by clicking the button `Create group`
 - Parent Group: `Groups/`
-- Name: `Seattle`
-- Description: `Things in Seattle`
+- Name: `Seattle` Turin
+- Description: `Things in Seattle` -- Vehicles in Turin
 - Attribute Key: `city`
-- Value: `Seattle`
+- Value: `Seattle` Turin
 - Click Button `Create thing group`
 
 ## IoT Authentication and Authorization
