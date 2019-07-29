@@ -1,3 +1,5 @@
+## IoT
+
 - Register a thing
 - Create a single thing
 - give it the name: `store-sensor-seattle-1`
