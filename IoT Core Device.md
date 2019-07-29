@@ -1,3 +1,27 @@
+## IoT
+
+- go on `Manage`
+- click on `Things`
+- click button `Register a thing`
+- click button `Create a single thing`
+- give it the name: `vehicle-turin-1`
+
+- Click button `Create a type` and open the new window:
+- Name it `automobile`
+- Describe it `A sensor for an automobile`
+- Go ahead and click button `Create thing type`
+
+## Add this thing to a group
+- Add the thing to a Group by clicking the button `Create group`
+- Parent Group: `Groups/`
+- Name: `Turin` 
+- Description: `Vehicles in Turin` 
+- Attribute Key: `city`
+- Value: `Turin` 
+- Click Button `Create thing group`
+
+
+
 ## Create Certificates
 - Choose `IoT Core`
 - click `manage`
@@ -15,11 +39,12 @@
 - click `Activate`
 - click button `Attach a policy` and click button `Register Thing`
 
+
 ## Create a policy
 - go to `Secure`
 - choose `Policies`
 - click `Create a policy`
-- Name it `sensor-policy` vehicle-policy
+- Name it `vehicle-policy`
 - define Action: `iot:*`
 - define resource ARN: `*`
 - define Effect: `Allow`
@@ -28,34 +53,15 @@
 ## Attach the policy to the certificate
 - go to `Secure` and then `Certificates`
 - click the meatball menu and `Attach policy`
-- tick the right `sensor policy` and click attach vehicle-policy
+- tick the right `vehicle-policy` and click attach 
 
 ## Verify the Certificate has the right policy
-- Open `Certificate`
+- Open `Secure`
 - Chose `Policies`
 
 
-## IoT
 
-- go on `Manage`
-- click on `Things`
-- click button `Register a thing`
--Click button `Create a single thing`
-- give it the name: `store-sensor-seattle-1` -- vehicle-turin-1
 
-- Click button `Create a type` and open the new window:
-- Name it `sensor` -- vehicle
-- Describe it `A sensor for a store`
-- Go ahead and click button `Create thing type`
-
-## Add this thing to a group
-- Add the thing to a Group by clicking the button `Create group`
-- Parent Group: `Groups/`
-- Name: `Seattle` Turin
-- Description: `Things in Seattle` -- Vehicles in Turin
-- Attribute Key: `city`
-- Value: `Seattle` Turin
-- Click Button `Create thing group`
 
 ## IoT Authentication and Authorization
 
@@ -67,3 +73,12 @@
 - click button `Publish to topic`
 - download from 
 
+## Create Python Veirtual Environment and launch client
+- python -m venv venv
+- cd venv/scripts
+- activate
+- cd ..
+- cd ..
+- pip install AWSIoTPythonSDK
+- pip freeze
+- python 
