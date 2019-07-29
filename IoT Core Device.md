@@ -58,3 +58,12 @@
 - Click Button `Create thing group`
 
 ## IoT Authentication and Authorization
+
+## IoT Message Broker
+- Click button `Test`
+- Click `Subscribe to a topic`
+- Name the Subscription topic `TurinVehicle/1`
+- click button `Subscribe to topic`
+- click button `Publish to topic`
+- download from 
+
