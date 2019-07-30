@@ -1,17 +1,17 @@
 ## IoT
-
 - go on `Manage`
 - click on `Things`
 - click button `Register a thing`
 - click button `Create a single thing`
 - give it the name: `vehicle-turin-1`
 
+## Create a Type for the thing
 - Click button `Create a type` and open the new window:
 - Name it `automobile`
 - Describe it `A sensor for an automobile`
 - Go ahead and click button `Create thing type`
 
-## Add this thing to a group
+## Create a Group for the thing
 - Add the thing to a Group by clicking the button `Create group`
 - Parent Group: `Groups/`
 - Name: `Turin` 
