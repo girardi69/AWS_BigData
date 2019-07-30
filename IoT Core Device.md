@@ -39,6 +39,8 @@
 - click `Activate`
 - click button `Attach a policy` and click button `Register Thing`
 
+## Exit and create a policy after
+- in the next window, click next and then go to the policy creation afterwards
 
 ## Create a policy
 - go to `Secure`
